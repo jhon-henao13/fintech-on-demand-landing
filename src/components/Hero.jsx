@@ -18,7 +18,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-slate-50/60 pt-8 lg:pt-14 pb-0">
+    <section className="relative overflow-hidden bg-slate-50/60 pt-1 lg:pt-2 pb-0">
       <div className="w-full max-w-[1536px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-8 lg:gap-0">
           
@@ -28,7 +28,7 @@ export default function Hero() {
               Travex
             </span>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-[3.25rem] font-extrabold text-brand-darkblue !leading-[1.2] tracking-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-[3.25rem] font-extrabold text-brand-darkblue !leading-[1.2] tracking-tight !mt-2">
               El control financiero que <span className="font-semibold text-brand-blue">tu empresa merece</span>
             </h1>
 
