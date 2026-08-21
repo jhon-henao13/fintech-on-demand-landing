@@ -3,6 +3,7 @@ import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Brands from './components/Brands';
+import Features from './components/Features';
 import Footer from './components/Footer';
 
 export default function App() {
@@ -12,6 +13,7 @@ export default function App() {
       <main className="flex-grow">
         <Hero />
         <Brands />
+        <Features />
       </main>
       <Footer />
     </div>
