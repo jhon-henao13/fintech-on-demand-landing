@@ -5,6 +5,7 @@ import Hero from './components/Hero';
 import Brands from './components/Brands';
 import Features from './components/Features';
 import VideoDemo from './components/VideoDemo';
+import FinancialImpact from './components/FinancialImpact';
 import Footer from './components/Footer';
 
 export default function App() {
@@ -16,6 +17,7 @@ export default function App() {
         <Brands />
         <Features />
         <VideoDemo />
+        <FinancialImpact />
       </main>
       <Footer />
     </div>
