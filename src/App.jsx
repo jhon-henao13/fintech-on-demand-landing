@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Brands from './components/Brands';
 import Features from './components/Features';
+import VideoDemo from './components/VideoDemo';
 import Footer from './components/Footer';
 
 export default function App() {
@@ -14,6 +15,7 @@ export default function App() {
         <Hero />
         <Brands />
         <Features />
+        <VideoDemo />
       </main>
       <Footer />
     </div>
