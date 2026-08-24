@@ -8,6 +8,7 @@ import VideoDemo from './components/VideoDemo';
 import FinancialImpact from './components/FinancialImpact';
 import HowItWorks from './components/HowItWorks';
 import FAQ from './components/FAQ';
+import CTA from './components/CTA';
 import Footer from './components/Footer';
 
 export default function App() {
@@ -22,6 +23,7 @@ export default function App() {
         <FinancialImpact />
         <HowItWorks/>
         <FAQ />
+        <CTA />
       </main>
       <Footer />
     </div>
