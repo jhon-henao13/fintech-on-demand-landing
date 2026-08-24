@@ -11,7 +11,7 @@ export default function VideoDemo() {
           
           {/* Columna Izquierda: Copys y CTA */}
           <div className="lg:col-span-7 space-y-6 text-center lg:text-left z-10">
-            <h2 className="text-5xl sm:text-6xl font-extrabold !tracking-[1.3] !leading-[1.45]">
+            <h2 className="text-5xl sm:text-6xl font-extrabold !tracking-[1.3] !leading-[1.4]">
               Conoce Travex <br className="hidden sm:inline" />
               <span className="text-white text-5xl sm:text-6xl font-bold">en 60 segundos</span>
             </h2>

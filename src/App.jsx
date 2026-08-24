@@ -6,6 +6,7 @@ import Brands from './components/Brands';
 import Features from './components/Features';
 import VideoDemo from './components/VideoDemo';
 import FinancialImpact from './components/FinancialImpact';
+import HowItWorks from './components/HowItWorks';
 import Footer from './components/Footer';
 
 export default function App() {
@@ -18,6 +19,7 @@ export default function App() {
         <Features />
         <VideoDemo />
         <FinancialImpact />
+        <HowItWorks/>
       </main>
       <Footer />
     </div>
