@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 
 export default function HowItWorks() {
   const [activeStep, setActiveStep] = useState(0);
@@ -74,11 +75,13 @@ export default function HowItWorks() {
         {/* Timeline Horizontal (Desktop & Mobile) */}
         <div className="relative mt-8">
           
-          {/* Línea conectora central en Desktop */}
-          <div className="hidden md:block absolute top-[44px] left-[10%] right-[10%] h-[2px] bg-brand-cardBg z-0">
-            <div 
-              className="h-full bg-brand-blue transition-all duration-500" 
-              style={{ width: `${(activeStep / (steps.length - 1)) * 100}%` }}
+          {/* Reemplazar la barra con motion.div para un llenado fluido */}
+          <div className="hidden md:block absolute top-[44px] left-[10%] right-[10%] h-[2px] bg-brand-cardBg z-0 overflow-hidden">
+            <motion.div 
+              className="h-full bg-brand-blue"
+              initial={{ width: "0%" }}
+              animate={{ width: `${(activeStep / (steps.length - 1)) * 100}%` }}
+              transition={{ type: "spring", stiffness: 80, damping: 15 }}
             />
           </div>
 
@@ -97,23 +100,22 @@ export default function HowItWorks() {
                   <div className="relative mb-8">
                     
                     {/* Botón Círculo */}
-                    <button
+                    <motion.button
+                      whileHover={{ scale: 1.08 }}
+                      whileTap={{ scale: 0.95 }}
                       type="button"
                       aria-label={`Paso ${item.step}: ${item.title}`}
-                      className={`relative w-24 h-24 sm:w-26 sm:h-26 rounded-full flex flex-col items-center justify-center transition-all duration-300 ${
+                      className={`relative w-24 h-24 sm:w-26 sm:h-26 rounded-full flex flex-col items-center justify-center transition-colors duration-300 ${
                         isActive
-                          ? "bg-gradient-to-b from-brand-darkblue to-brand-blue text-white shadow-[0_10px_35px_rgba(24,31,113,0.5)] scale-110"
-                          : "bg-brand-darkblue text-white shadow-[0_8px_25px_rgba(24,31,113,0.3)] hover:scale-105 hover:shadow-[0_12px_30px_rgba(24,31,113,0.4)]"
+                          ? "bg-gradient-to-b from-brand-darkblue to-brand-blue text-white shadow-[0_10px_35px_rgba(24,31,113,0.5)]"
+                          : "bg-brand-darkblue text-white shadow-[0_8px_25px_rgba(24,31,113,0.3)] hover:shadow-[0_12px_30px_rgba(24,31,113,0.4)]"
                       }`}
                     >
-                      {/* Icono */}
                       <div className="mb-1">{item.icon}</div>
-                      
-                      {/* Etiqueta Paso */}
                       <span className="text-[10px] font-bold tracking-widest uppercase text-slate-200">
                         PASO {item.step}
                       </span>
-                    </button>
+                    </motion.button>
 
                     {/* ANIMACIÓN EXCLUSIVA DE MOUSE CLICK PARA PASO 1 */}
                     {isFirst && (

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import cardImg from '../assets/card-blackblue-visa.png';
 
 export default function VideoDemo() {
@@ -30,57 +31,74 @@ export default function VideoDemo() {
             </div>
           </div>
 
-          {/* Columna Derecha: Mockup Video Shorts + Tarjetas Flotantes Animadas */}
+          {/* Columna Derecha: Mockup Video Shorts + Tarjetas Flotantes en Framer Motion */}
           <div className="lg:col-span-5 relative flex items-center justify-center min-h-[480px] sm:min-h-[560px]">
             
-            {/* --- TARJETAS AMBIENTALES EN EL FONDO (ANIMADAS) --- */}
+            {/* --- TARJETAS AMBIENTALES EN EL FONDO (ANIMADAS CON FRAMER MOTION) --- */}
             
             {/* Tarjeta 1: Superior Izquierda */}
-            <img
+            <motion.img
+              animate={{ y: [-8, 8, -8] }}
+              transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
               src={cardImg}
               alt="Travex Visa Card"
-              className="absolute top-20 left-2 sm:-left-10 w-24 sm:w-36 rounded-lg shadow-2xl opacity-60 animate-floatSlow -rotate-0 pointer-events-none z-0"
+              className="absolute top-20 left-2 sm:-left-10 w-24 sm:w-36 rounded-lg shadow-2xl opacity-60 pointer-events-none z-0"
             />
 
             {/* Tarjeta 2: Superior Derecha */}
-            <img
+            <motion.img
+              animate={{ y: [10, -10, 10], rotate: [12, 10, 12] }}
+              transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
               src={cardImg}
               alt="Travex Visa Card"
-              className="absolute top-20 right-2 sm:-right-2 w-28 sm:w-40 rounded-lg shadow-2xl opacity-70 animate-float rotate-12 pointer-events-none z-0"
+              className="absolute top-20 right-2 sm:-right-2 w-28 sm:w-40 rounded-lg shadow-2xl opacity-70 pointer-events-none z-0"
             />
 
             {/* Tarjeta 3: Centro Izquierda */}
-            <img
+            <motion.img
+              animate={{ y: [-6, 6, -6], rotate: [-2, -4, -2] }}
+              transition={{ repeat: Infinity, duration: 3.5, ease: "easeInOut" }}
               src={cardImg}
               alt="Travex Visa Card"
-              className="absolute top-1/2 -translate-y-1/2 left-0 sm:left-16 w-20 sm:w-28 rounded-lg shadow-xl opacity-90 animate-floatFast -rotate-2 pointer-events-none z-0"
+              className="absolute top-1/2 -translate-y-1/2 left-0 sm:left-16 w-20 sm:w-28 rounded-lg shadow-xl opacity-90 pointer-events-none z-0"
             />
 
             {/* Tarjeta 4: Centro Derecha */}
-            <img
+            <motion.img
+              animate={{ y: [8, -8, 8] }}
+              transition={{ repeat: Infinity, duration: 4.5, ease: "easeInOut" }}
               src={cardImg}
               alt="Travex Visa Card"
-              className="absolute bottom-28 -translate-y-1/2 right-0 sm:right-10 w-28 sm:w-36 rounded-lg shadow-xl opacity-75 animate-floatSlow rotate-0 pointer-events-none z-0"
+              className="absolute bottom-28 -translate-y-1/2 right-0 sm:right-10 w-28 sm:w-36 rounded-lg shadow-xl opacity-75 pointer-events-none z-0"
             />
 
             {/* Tarjeta 5: Inferior Izquierda */}
-            <img
+            <motion.img
+              animate={{ y: [-10, 10, -10], rotate: [6, 4, 6] }}
+              transition={{ repeat: Infinity, duration: 5.2, ease: "easeInOut" }}
               src={cardImg}
               alt="Travex Visa Card"
-              className="absolute bottom-20 left-6 sm:left-6 w-24 sm:w-32 rounded-lg shadow-2xl opacity-40 animate-float rotate-6 pointer-events-none z-0"
+              className="absolute bottom-20 left-6 sm:left-6 w-24 sm:w-32 rounded-lg shadow-2xl opacity-40 pointer-events-none z-0"
             />
 
             {/* Tarjeta 6: Inferior Derecha */}
-            <img
+            <motion.img
+              animate={{ y: [6, -6, 6], rotate: [-2, -4, -2] }}
+              transition={{ repeat: Infinity, duration: 4.8, ease: "easeInOut" }}
               src={cardImg}
               alt="Travex Visa Card"
-              className="absolute bottom-16 right-4 sm:right-6 w-14 sm:w-16 rounded-lg shadow-xl opacity-60 animate-floatFast -rotate-2 pointer-events-none z-0"
+              className="absolute bottom-16 right-4 sm:right-6 w-14 sm:w-16 rounded-lg shadow-xl opacity-60 pointer-events-none z-0"
             />
 
 
             {/* --- CONTENEDOR DEL VIDEO SHORTS --- */}
-            <div className="relative z-10 w-[220px] sm:w-[260px] h-[450px] sm:h-[500px] bg-slate-950 rounded-[36px] p-2.5 shadow-2xl border-4 border-slate-700/50 flex flex-col justify-between overflow-hidden group">
-              
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9, y: 30 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+              className="relative z-10 w-[220px] sm:w-[260px] h-[450px] sm:h-[500px] bg-slate-950 rounded-[36px] p-2.5 shadow-2xl border-4 border-slate-700/50 flex flex-col justify-between overflow-hidden group"
+            >
               {!isPlaying ? (
                 /* Poster Preview del Video */
                 <div className="relative w-full h-full rounded-[28px] overflow-hidden bg-slate-900 flex flex-col justify-between p-4">
@@ -101,17 +119,19 @@ export default function VideoDemo() {
                     </div>
                   </div>
 
-                  {/* Botón Play central con pulso dinámico */}
+                  {/* Botón Play central interactivo con Framer Motion */}
                   <div className="absolute inset-0 flex items-center justify-center z-20">
-                    <button
+                    <motion.button
+                      whileHover={{ scale: 1.15 }}
+                      whileTap={{ scale: 0.9 }}
                       onClick={() => setIsPlaying(true)}
                       aria-label="Reproducir video"
-                      className="w-12 h-12 rounded-full bg-red-600 hover:bg-red-500 text-white flex items-center justify-center shadow-lg hover:scale-110 transition-all duration-300 group-hover:shadow-red-500/50"
+                      className="w-12 h-12 rounded-full bg-red-600 text-white flex items-center justify-center shadow-lg group-hover:shadow-red-500/50 transition-shadow"
                     >
                       <svg className="w-8 h-8 fill-current translate-x-0.5" viewBox="0 0 24 24">
                         <path d="M8 5v14l11-7z" />
                       </svg>
-                    </button>
+                    </motion.button>
                   </div>
 
                   {/* Footer simulado dentro del Shorts */}
@@ -137,8 +157,7 @@ export default function VideoDemo() {
                   allowFullScreen
                 ></iframe>
               )}
-
-            </div>
+            </motion.div>
 
           </div>
 

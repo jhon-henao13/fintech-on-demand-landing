@@ -1,5 +1,4 @@
 /* src/index.css */
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,7 +7,30 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Transiciones suaves globales */
+/* Optimización de renderizado y transiciones globales */
 button, a, input {
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Efectos de Hover Premium */
+.glass-hover {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, box-shadow;
+}
+
+.glass-hover:hover {
+  transform: translateY(-6px) scale(1.01);
+}
+
+/* Suavizado para Scroll Reveal */
+.reveal-hidden {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
 }

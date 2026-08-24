@@ -1,9 +1,16 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import handImg from '../assets/hand-violet.jpeg';
 
 export default function CTA() {
   return (
-    <section className="bg-brand-cardBg text-white py-16 sm:py-24 relative overflow-hidden">
+    <motion.section 
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+      className="bg-brand-cardBg text-white py-16 sm:py-24 relative overflow-hidden"
+    >
       
       {/* Resplandor decorativo de fondo */}
       <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 bg-white/10 rounded-full blur-3xl pointer-events-none" />
@@ -38,21 +45,26 @@ export default function CTA() {
 
           {/* Columna Derecha: Ilustración de la mano con animación */}
           <div className="lg:col-span-5 flex items-center justify-center lg:justify-end">
-            <div className="relative group">
+
+            <motion.div 
+              animate={{ y: [0, -10, 0], rotate: [0, 1.5, 0] }}
+              transition={{ repeat: Infinity, duration: 4.5, ease: "easeInOut" }}
+              className="relative group"
+            >
               {/* Sombra de resplandor bajo la mano */}
               <div className="absolute inset-0 rounded-full bg-brand-violet/20 blur-2xl transform group-hover:scale-110 transition-transform duration-500" />
-              
-              {/* Imagen de la mano con efecto flotante continuo */}
+            
+              {/* Imagen de la mano */}
               <img
                 src={handImg}
                 alt="Chasquido de dedos - Control instantáneo de gastos"
-                className="relative z-10 w-64 sm:w-80 lg:w-96 h-auto object-contain animate-float drop-shadow-2xl"
+                className="relative z-10 w-64 sm:w-80 lg:w-96 h-auto object-contain drop-shadow-2xl"
               />
-            </div>
+            </motion.div>
           </div>
 
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

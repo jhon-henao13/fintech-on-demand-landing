@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import card1 from '../assets/five-cards/card-1.jpeg';
 import card2 from '../assets/five-cards/card-2.jpeg';
 import card3 from '../assets/five-cards/card-3.png';
@@ -54,11 +55,30 @@ export default function Features() {
         </div>
 
         {/* Grid de 5 tarjetas */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        <motion.div 
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={{
+            hidden: { opacity: 0 },
+            show: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.12
+              }
+            }
+          }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4"
+        >
           {cardsData.map((card, idx) => (
-            <div
+            <motion.div
               key={idx}
-              className={`group bg-[#7985b8] hover:bg-[#6c78ad] rounded-2xl text-white flex flex-col justify-between overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 ${
+              variants={{
+                hidden: { opacity: 0, y: 30 },
+                show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+              }}
+              whileHover={{ y: -8, transition: { duration: 0.25 } }}
+              className={`group bg-[#7985b8] hover:bg-[#6c78ad] rounded-2xl text-white flex flex-col justify-between overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 ${
                 idx === 0 ? 'pt-5 px-0 pb-0' : 'p-5'
               }`}
             >
@@ -71,7 +91,7 @@ export default function Features() {
                   {card.description}
                 </p>
               </div>
-
+          
               {/* Imagen inferior */}
               <div className={`w-full min-h-[160px] flex items-end pt-2 ${idx === 0 ? 'justify-start' : 'justify-center'}`}>
                 <img
@@ -80,9 +100,9 @@ export default function Features() {
                   className="max-h-36 w-auto object-contain transition-transform duration-300 group-hover:scale-105 rounded-lg"
                 />
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
       </div>
     </section>

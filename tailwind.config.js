@@ -1,5 +1,4 @@
 // tailwind.config.js
-
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -37,6 +36,22 @@ export default {
         marquee: {
           '0%': { transform: 'translateX(0%)' },
           '100%': { transform: 'translateX(-50%)' },
+        },
+        fadeInUp: {
+          '0%': { opacity: '0', transform: 'translateY(28px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        fadeInLeft: {
+          '0%': { opacity: '0', transform: 'translateX(-28px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
+        },
+        fadeInRight: {
+          '0%': { opacity: '0', transform: 'translateX(28px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
+        },
+        zoomIn: {
+          '0%': { opacity: '0', transform: 'scale(0.94)' },
+          '100%': { opacity: '1', transform: 'scale(1)' },
         }
       },
       animation: {
@@ -44,6 +59,10 @@ export default {
         floatSlow: 'floatSlow 6s ease-in-out infinite',
         floatFast: 'floatFast 3.5s ease-in-out infinite',
         marquee: 'marquee 30s linear infinite',
+        fadeInUp: 'fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+        fadeInLeft: 'fadeInLeft 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+        fadeInRight: 'fadeInRight 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+        zoomIn: 'zoomIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
       }
     },
   },
