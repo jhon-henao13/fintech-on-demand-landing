@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import handImg from '../assets/hand-violet.jpeg';
 
-export default function CTA() {
+export default function CTA({ onOpenModal }) {
   return (
     <motion.section 
       initial={{ opacity: 0, y: 20 }}
@@ -26,8 +26,8 @@ export default function CTA() {
             </h2>
 
             <div className="!mt-16">
-              <a
-                href="#contacto"
+              <button
+                onClick={onOpenModal}
                 className="inline-flex items-center justify-center px-8 py-5 rounded-xl font-bold text-white bg-brand-blue hover:bg-brand-darkblue shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 active:translate-y-0 active:scale-95 border border-white/10 group"
               >
                 <span>Agenda tu demo</span>
@@ -39,7 +39,7 @@ export default function CTA() {
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
-              </a>
+              </button>
             </div>
           </div>
 
@@ -53,7 +53,7 @@ export default function CTA() {
             >
               {/* Sombra de resplandor bajo la mano */}
               <div className="absolute inset-0 rounded-full bg-brand-violet/20 blur-2xl transform group-hover:scale-110 transition-transform duration-500" />
-            
+
               {/* Imagen de la mano */}
               <img
                 src={handImg}

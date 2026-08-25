@@ -7,14 +7,16 @@ import bancoMexicoLogo from '../assets/bancodemexico-png.png';
 import visaLogo from '../assets/visa-png.png';
 import condusefLogo from '../assets/condusef-png.png';
 
-export default function Hero() {
+export default function Hero({ onOpenModal }) {
+    
   const [email, setEmail] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (email) {
-      alert(`Demo solicitada para: ${email}`);
-      setEmail('');
+      onOpenModal(email);
+    } else {
+      onOpenModal();
     }
   };
 

@@ -1,5 +1,4 @@
-// src/App.jsx
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -11,8 +10,21 @@ import HowItWorks from './components/HowItWorks';
 import FAQ from './components/FAQ';
 import CTA from './components/CTA';
 import Footer from './components/Footer';
+import ContactModal from './components/ContactModal';
 
 export default function App() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalInitialEmail, setModalInitialEmail] = useState('');
+
+  const handleOpenModal = (email = '') => {
+    setModalInitialEmail(email);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <motion.div 
       initial={{ opacity: 0 }}
@@ -20,18 +32,25 @@ export default function App() {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="min-h-screen flex flex-col bg-white overflow-x-hidden"
     >
-      <Navbar />
+      <Navbar onOpenModal={() => handleOpenModal()} />
       <main className="flex-grow">
-        <Hero />
+        <Hero onOpenModal={handleOpenModal} />
         <Brands />
         <Features />
-        <VideoDemo />
+        <VideoDemo onOpenModal={() => handleOpenModal()} />
         <FinancialImpact />
         <HowItWorks />
         <FAQ />
-        <CTA />
+        <CTA onOpenModal={() => handleOpenModal()} />
       </main>
       <Footer />
+
+      {/* Modal Global de Captación y Agendamiento */}
+      <ContactModal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        initialEmail={modalInitialEmail}
+      />
     </motion.div>
   );
 }

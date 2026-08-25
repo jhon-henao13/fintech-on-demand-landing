@@ -2,7 +2,8 @@
 import React, { useState } from 'react';
 import logo from '../assets/fintech-logo.png';
 
-export default function Navbar() {
+
+export default function Navbar({ onOpenModal }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -36,12 +37,12 @@ export default function Navbar() {
 
         {/* CTA Button */}
         <div className="hidden md:block">
-          <a
-            href="#contacto"
+          <button
+            onClick={onOpenModal}
             className="inline-flex items-center justify-center px-6 py-3 rounded-full text-sm font-semibold text-white bg-brand-darkblue hover:bg-brand-blue shadow-md hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 active:scale-95 transition-all duration-200"
           >
             Hablar con un asesor
-          </a>
+          </button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -67,13 +68,13 @@ export default function Navbar() {
           <a href="#beneficios" onClick={() => setIsOpen(false)} className="block text-slate-700 font-semibold py-1 hover:text-brand-blue">Beneficios</a>
           <a href="#implementacion" onClick={() => setIsOpen(false)} className="block text-slate-700 font-semibold py-1 hover:text-brand-blue">Implementación</a>
           <a href="#faq" onClick={() => setIsOpen(false)} className="block text-slate-700 font-semibold py-1 hover:text-brand-blue">FAQ</a>
-          <a
-            href="#contacto"
-            onClick={() => setIsOpen(false)}
+
+          <button
+            onClick={onOpenModal}
             className="block w-full text-center mt-4 px-6 py-3.5 rounded-full text-sm font-semibold text-white bg-brand-darkblue active:scale-95 transition-all"
           >
             Hablar con un asesor
-          </a>
+          </button>
         </div>
       )}
     </header>

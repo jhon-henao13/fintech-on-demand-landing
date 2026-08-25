@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import cardImg from '../assets/card-blackblue-visa.png';
 
-export default function VideoDemo() {
+export default function VideoDemo({ onOpenModal }) {
   const [isPlaying, setIsPlaying] = useState(false);
 
   return (
@@ -22,13 +22,14 @@ export default function VideoDemo() {
             </p>
 
             <div className="pt-2">
-              <a
-                href="#contacto"
-                className="inline-flex items-center justify-center px-6 py-4 rounded-xl font-bold text-brand-darkblue bg-white hover:bg-slate-100 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 active:translate-y-0 active:scale-95 text-lg"
+              <button
+                onClick={onOpenModal}
+                className="inline-flex items-center justify-center px-6 py-4 rounded-xl font-bold text-brand-darkblue bg-white          hover:bg-slate-100 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1            active:translate-y-0 active:scale-95 text-lg"
               >
                 Agenda tu demo
-              </a>
+              </button>
             </div>
+            
           </div>
 
           {/* Columna Derecha: Mockup Video Shorts + Tarjetas Flotantes en Framer Motion */}
