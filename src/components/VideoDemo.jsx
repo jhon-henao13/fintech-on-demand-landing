@@ -152,7 +152,7 @@ export default function VideoDemo({ onOpenModal }) {
                 /* Reproductor Embed de YouTube Short */
                 <iframe
                   className="w-full h-full rounded-[28px] z-20"
-                  src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
+                  src="https://www.youtube.com/embed/lEokq0yBckw?autoplay=1"
                   title="Travex Demo Video"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
