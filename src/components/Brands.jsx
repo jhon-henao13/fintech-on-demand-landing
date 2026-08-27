@@ -1,38 +1,60 @@
 import React from 'react';
 
+// Importación de logos desde src/assets/brands
+import envasesLogo from '../assets/brands/envases-logo.png';
+import grupoSendaLogo from '../assets/brands/gruposenda.png';
+import ikusiLogo from '../assets/brands/ikusi-logo.png';
+import littleCaesarsLogo from '../assets/brands/little-caesars-logo.png';
+import muguerzaLogo from '../assets/brands/muguerza-logo.png';
+import polloLocoLogo from '../assets/brands/pollo-loco-logo.png';
+import sterenLogo from '../assets/brands/steren-logo.png';
+import transmontesLogo from '../assets/brands/transmontes-logo.png';
+import vilnlaceroLogo from '../assets/brands/vilnlacero-logo.png';
+
+const brands = [
+  { name: 'Envases Group', logo: envasesLogo },
+  { name: 'Grupo Senda', logo: grupoSendaLogo },
+  { name: 'Ikusi', logo: ikusiLogo },
+  { name: 'Little Caesars', logo: littleCaesarsLogo },
+  { name: 'Christus Muguerza', logo: muguerzaLogo },
+  { name: 'El Pollo Loco', logo: polloLocoLogo },
+  { name: 'Steren', logo: sterenLogo },
+  { name: 'Transmontes', logo: transmontesLogo },
+  { name: 'Villacero', logo: vilnlaceroLogo },
+];
+
+// Duplicamos la lista para garantizar el loop infinito continuo
+const carouselBrands = [...brands, ...brands];
+
 export default function Brands() {
-  const brandNames = [
-    'lululemon',
-    'BCG BOSTON CONSULTING GROUP',
-    'UKG',
-    'JOHNS HOPKINS UNIVERSITY',
-    'dyson',
-    'Etsy',
-    'affirm',
-    'Tripadvisor'
-  ];
-
-  // Duplicamos el arreglo para el bucle continuo sin saltos
-  const doubleBrands = [...brandNames, ...brandNames];
-
   return (
-    <section className="bg-brand-darkblue text-white py-8 overflow-hidden border-t border-b border-brand-violet/20">
-      <div className="max-w-7xl mx-auto px-6 text-center mb-6">
+    <section className="bg-brand-darkblue text-white py-10 overflow-hidden border-t border-b border-white/10 relative">
+      <div className="max-w-7xl mx-auto px-6 text-center mb-8">
         <p className="text-xs sm:text-sm font-semibold tracking-widest text-slate-200 uppercase">
-          + de 500 empresas
+          + de 500 empresas confían en nosotros
         </p>
       </div>
 
-      {/* Carrusel Ticker */}
-      <div className="relative w-full flex overflow-hidden mask-gradient">
-        <div className="flex shrink-0 gap-12 sm:gap-16 animate-marquee whitespace-nowrap items-center">
-          {doubleBrands.map((brand, idx) => (
-            <span
-              key={idx}
-              className="font-bold text-base sm:text-lg tracking-tight text-slate-100/90 hover:text-white transition-colors cursor-default"
+      {/* Contenedor del Carrusel Interactivo */}
+      <div className="relative w-full overflow-hidden pause-on-hover group">
+        
+        {/* Mascaras de degradado lateral (efecto fade/desvanecido premium) */}
+        <div className="absolute top-0 bottom-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-brand-darkblue to-transparent z-10 pointer-events-none" />
+        <div className="absolute top-0 bottom-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-brand-darkblue to-transparent z-10 pointer-events-none" />
+
+        {/* Track animado */}
+        <div className="flex shrink-0 gap-8 sm:gap-14 animate-marquee whitespace-nowrap items-center w-max py-2">
+          {carouselBrands.map((brand, idx) => (
+            <div
+              key={`${brand.name}-${idx}`}
+              className="flex items-center justify-center px-4 py-2 sm:px-6 sm:py-3 rounded-lg bg-white border border-white/10 shadow-lg hover:border-white/30 hover:bg-white/70 transition-all duration-300 transform hover:scale-105 group/item cursor-pointer"
             >
-              {brand}
-            </span>
+              <img
+                src={brand.logo}
+                alt={`Logo de ${brand.name}`}
+                className="h-9 sm:h-12 w-auto object-contain opacity-80 group-hover/item:opacity-100 group-hover/item:brightness-100 transition-all duration-300"
+              />
+            </div>
           ))}
         </div>
       </div>

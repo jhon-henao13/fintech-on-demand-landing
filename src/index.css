@@ -34,3 +34,8 @@ button, a, input {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Pausa suave del carrusel en hover */
+.pause-on-hover:hover .animate-marquee {
+  animation-play-state: paused;
+}
