@@ -22,7 +22,7 @@ export default function Features() {
     },
     {
       title: "Validación Fiscal SAT",
-      description: "Validación de UUIDs en tiempo real.",
+      description: "Validación del CFDI ante el SAT en tiempo real.",
       image: card3,
       alt: "Logo e integración con el SAT",
     },
