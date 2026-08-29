@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import cardImg from '../assets/card-blackblue-visa.png';
+import cardImg from '../assets/card-blackblue-visa.webp';
 
 export default function VideoDemo({ onOpenModal }) {
   const [isPlaying, setIsPlaying] = useState(false);

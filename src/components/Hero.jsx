@@ -1,11 +1,11 @@
 // src/components/Hero.jsx
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import heroRightImg from '../assets/hero-right.png';
+import heroRightImg from '../assets/hero-right.webp';
 import cnbvLogo from '../assets/cnbv-icon-gray-png.png';
 import bancoMexicoLogo from '../assets/bancodemexico-png.png';
-import visaLogo from '../assets/visa-png.png';
-import condusefLogo from '../assets/condusef-png.png';
+import visaLogo from '../assets/visa-png.webp';
+import condusefLogo from '../assets/condusef-png.webp';
 
 export default function Hero({ onOpenModal }) {
     
@@ -69,7 +69,7 @@ export default function Hero({ onOpenModal }) {
             {/* Entidades reguladoras / Badges */}
             <div className="pt-8 pb-8 lg:pb-12">
               <div className="flex flex-wrap items-center gap-6 sm:gap-8 opacity-75 grayscale hover:grayscale-0 transition-all">
-                <img src={cnbvLogo} alt="CNBV" className="h-8 object-contain" />
+                <img src={cnbvLogo} alt="CNBV" className="h-10 object-contain" />
                 <img src={bancoMexicoLogo} alt="Banco de México" className="h-8 object-contain" />
                 <img src={visaLogo} alt="VISA" className="h-6 object-contain" />
                 <img src={condusefLogo} alt="CONDUSEF" className="h-8 object-contain" />

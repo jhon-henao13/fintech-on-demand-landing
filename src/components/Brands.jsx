@@ -6,7 +6,7 @@ import grupoSendaLogo from '../assets/brands/gruposenda.png';
 import ikusiLogo from '../assets/brands/ikusi-logo.png';
 import littleCaesarsLogo from '../assets/brands/little-caesars-logo.png';
 import muguerzaLogo from '../assets/brands/muguerza-logo.png';
-import polloLocoLogo from '../assets/brands/pollo-loco-logo.png';
+// import polloLocoLogo from '../assets/brands/pollo-loco-logo.png';
 import sterenLogo from '../assets/brands/steren-logo.png';
 import transmontesLogo from '../assets/brands/transmontes-logo.png';
 import vilnlaceroLogo from '../assets/brands/vilnlacero-logo.png';
@@ -17,7 +17,7 @@ const brands = [
   { name: 'Ikusi', logo: ikusiLogo },
   { name: 'Little Caesars', logo: littleCaesarsLogo },
   { name: 'Christus Muguerza', logo: muguerzaLogo },
-  { name: 'El Pollo Loco', logo: polloLocoLogo },
+  // { name: 'El Pollo Loco', logo: polloLocoLogo },
   { name: 'Steren', logo: sterenLogo },
   { name: 'Transmontes', logo: transmontesLogo },
   { name: 'Villacero', logo: vilnlaceroLogo },
