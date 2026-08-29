@@ -78,7 +78,7 @@ export default function Features() {
                 show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
               }}
               whileHover={{ y: -8, transition: { duration: 0.25 } }}
-              className={`group bg-[#7985b8] hover:bg-[#6c78ad] rounded-2xl text-white flex flex-col justify-between overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 ${
+              className={`group bg-brand-blue hover:bg-brand-darkblue rounded-2xl text-white flex flex-col justify-between overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 ${
                 idx === 0 ? 'pt-5 px-0 pb-0' : 'p-5'
               }`}
             >
