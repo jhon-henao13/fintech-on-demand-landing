@@ -88,7 +88,7 @@ export default function ContactModal({ isOpen, onClose, initialEmail = '' }) {
           Company: formData.empresa,
           NumberOfEmployees: formData.empleados,
           Title: formData.puesto,
-          OfrecenVales__c: formData.ofrecenVales
+          PlataformaGastos__c: formData.tienePlataformaGastos
         })
       }).catch(() => null);
     } catch (err) {
@@ -295,16 +295,16 @@ export default function ContactModal({ isOpen, onClose, initialEmail = '' }) {
 
                   <div>
                     <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                      ¿Ya ofrecen vales a sus empleados? *
+                      ¿Actualmente cuentan con una plataforma para administración de Gastos y Viaticos? *
                     </label>
                     <div className="grid grid-cols-2 gap-3 pt-1">
                       {['Sí', 'No'].map((opcion) => (
                         <button
                           key={opcion}
                           type="button"
-                          onClick={() => setFormData((prev) => ({ ...prev, ofrecenVales: opcion }))}
+                          onClick={() => setFormData((prev) => ({ ...prev, tienePlataformaGastos: opcion }))}
                           className={`py-3 rounded-xl font-bold border transition-all ${
-                            formData.ofrecenVales === opcion
+                            formData.tienePlataformaGastos === opcion
                               ? 'bg-brand-darkblue text-white border-brand-darkblue shadow-md'
                               : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50'
                           }`}
