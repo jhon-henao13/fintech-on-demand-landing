@@ -4,6 +4,8 @@ import card1Gray from '../assets/card-1-gray.png';
 import card2Gray from '../assets/card-2-gray.png';
 import card3Gray from '../assets/card-3-gray.png';
 
+import sondaLogo from '../assets/success-stories/sonda-makeiteasy.png';
+
 export default function FinancialImpact() {
   const metrics = [
     {
@@ -25,17 +27,19 @@ export default function FinancialImpact() {
 
   const caseStudies = [
     {
-      image: card1Gray,
-      logoText: "logo",
+      image: sondaLogo,
+      
       text: (
         <>
-          Consiguió un <span className="font-extrabold text-brand-darkblue">80% de ahorro</span> en tiempo de cierre contable y <span className="font-extrabold text-brand-darkblue">eliminó 100% los tickets de papel.</span>
+          "Travex nos ha ayudado a hacer <span className="font-extrabold text-brand-darkblue">más eficiente la gestión</span> de nuestros viajes y nuestra operación."
         </>
       )
     },
+
+    
     {
       image: card2Gray,
-      logoText: "logo",
+      
       text: (
         <>
           Implementó tarjetas corporativas y control de viáticos para +500 empleados en campo <span className="font-extrabold text-brand-darkblue">sin fugas de dinero.</span>
@@ -44,7 +48,7 @@ export default function FinancialImpact() {
     },
     {
       image: card3Gray,
-      logoText: "logo",
+      // logoText: "logo",
       text: (
         <>
           Ahorró <span className="font-extrabold text-brand-darkblue">22% del presupuesto anual</span> de viajes validando el 100% de los CFDIs ante el SAT en tiempo real.
@@ -139,9 +143,17 @@ export default function FinancialImpact() {
             
                 {/* Contenido Superior */}
                 <div className="relative z-10">
-                  <span className="text-2xl font-black text-brand-darkblue tracking-tight">
-                    {card.logoText}
-                  </span>
+                  {card.logo ? (
+                    <img 
+                      src={card.logo} 
+                      alt="Logo cliente" 
+                      className="h-10 sm:h-12 w-auto object-contain rounded-xl" 
+                    />
+                  ) : (
+                    <span className="text-2xl font-black text-brand-darkblue tracking-tight">
+                      {card.logoText}
+                    </span>
+                  )}
                 </div>
             
                 {/* Contenido Inferior */}
