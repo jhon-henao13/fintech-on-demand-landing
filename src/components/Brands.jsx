@@ -47,16 +47,18 @@ export default function Brands() {
           {carouselBrands.map((brand, idx) => (
             <div
               key={`${brand.name}-${idx}`}
-              className="flex items-center justify-center px-4 py-2 sm:px-6 sm:py-3 rounded-lg bg-white border border-white/10 shadow-lg hover:border-white/30 hover:bg-white/70 transition-all duration-300 transform hover:scale-105 group/item cursor-pointer"
+              className="flex items-center justify-center px-4 py-2 sm:px-6 sm:py-3 transition-all duration-300 transform hover:scale-105 group/item cursor-pointer"
             >
               <img
                 src={brand.logo}
                 alt={`Logo de ${brand.name}`}
-                className="h-9 sm:h-12 w-auto object-contain opacity-80 group-hover/item:opacity-100 group-hover/item:brightness-100 transition-all duration-300"
+                className="h-12 sm:h-14 w-auto object-contain brightness-0 invert opacity-70 group-hover/item:opacity-100 transition-all duration-300"
               />
             </div>
           ))}
         </div>
+
+        
       </div>
     </section>
   );
