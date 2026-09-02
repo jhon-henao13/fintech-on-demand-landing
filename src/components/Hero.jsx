@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import heroRightImg from '../assets/hero-right.webp';
+import travexLogo from '../assets/travex-logo.png';
 import cnbvLogo from '../assets/cnbv-icon-gray-png.png';
 import bancoMexicoLogo from '../assets/bancodemexico-png.png';
 import visaLogo from '../assets/visa-png.webp';
@@ -32,9 +33,9 @@ export default function Hero({ onOpenModal }) {
             transition={{ duration: 0.7, ease: "easeOut" }}
             className="lg:col-span-6 px-6 sm:px-12 lg:pl-16 lg:pr-8 space-y-6"
           >
-            <span className="text-slate-600 font-medium text-lg block tracking-tight">
-              Travex
-            </span>
+            <div>
+              <img src={travexLogo} alt="Travex Logo" className="h-4 w-auto object-contain mb-3" />
+            </div>
           
             <h1 className="text-4xl sm:text-5xl lg:text-[3.25rem] font-extrabold text-brand-darkblue !leading-[1.2] tracking-tight !mt-2">
               El control financiero que <span className="font-semibold text-brand-blue">tu empresa merece</span>
