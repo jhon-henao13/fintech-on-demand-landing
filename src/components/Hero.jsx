@@ -22,7 +22,7 @@ export default function Hero({ onOpenModal }) {
   };
 
   return (
-    <section className="relative overflow-hidden bg-slate-50/60 pt-12 lg:pt-12 pb-0">
+    <section className="relative overflow-hidden bg-slate-50/60 pt-10 lg:pt-10 pb-0">
       <div className="w-full max-w-[1536px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-8 lg:gap-0">
           
