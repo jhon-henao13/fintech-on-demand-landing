@@ -5,6 +5,8 @@ import card2Gray from '../assets/card-2-gray.png';
 import card3Gray from '../assets/card-3-gray.png';
 
 import sondaLogo from '../assets/success-stories/sonda-makeiteasy.png';
+import logistikLogo from '../assets/success-stories/logistik.jpeg';
+import gasoLogo from '../assets/success-stories/gaso-comunicaciones.jpeg';
 
 export default function FinancialImpact() {
   const metrics = [
@@ -28,30 +30,29 @@ export default function FinancialImpact() {
   const caseStudies = [
     {
       image: sondaLogo,
-      
       text: (
         <>
           "Travex nos ha ayudado a hacer <span className="font-extrabold text-brand-darkblue">más eficiente la gestión</span> de nuestros viajes y nuestra operación."
         </>
       )
     },
-
     
     {
-      image: card2Gray,
+      image: logistikLogo,
       
       text: (
         <>
-          Implementó tarjetas corporativas y control de viáticos para +500 empleados en campo <span className="font-extrabold text-brand-darkblue">sin fugas de dinero.</span>
+          "Más de 7 años creciendo junto a One Card respaldan la confianza de <span className="font-extrabold text-brand-darkblue">Logistik Operacional®</span>. Su gestión transparente y correcta es la clave para entregar soluciones <span className="font-extrabold text-brand-darkblue">en tiempo y forma</span>."
         </>
       )
     },
+    
     {
-      image: card3Gray,
-      // logoText: "logo",
+      image: gasoLogo,
+      
       text: (
         <>
-          Ahorró <span className="font-extrabold text-brand-darkblue">22% del presupuesto anual</span> de viajes validando el 100% de los CFDIs ante el SAT en tiempo real.
+          "Travex nos brindó la <span className="font-extrabold text-brand-darkblue">trazabilidad necesaria</span> para nuestra operación, dándonos control total de cada gasto y la <span className="font-extrabold text-brand-darkblue">flexibilidad en dispersión</span> y comprobación que necesitábamos."
         </>
       )
     }
