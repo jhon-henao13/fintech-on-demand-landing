@@ -42,7 +42,7 @@ export default function FinancialImpact() {
       
       text: (
         <>
-          "Más de 7 años creciendo junto a One Card respaldan la confianza de <span className="font-extrabold text-brand-darkblue">Logistik Operacional®</span>. Su gestión transparente y correcta es la clave para entregar soluciones <span className="font-extrabold text-brand-darkblue">en tiempo y forma</span>."
+          "Más de 7 años creciendo junto a Travex respaldan la confianza de <span className="font-extrabold text-brand-darkblue">Logistik Operacional®</span>. Su gestión transparente y correcta es la clave para entregar soluciones <span className="font-extrabold text-brand-darkblue">en tiempo y forma</span>."
         </>
       )
     },
