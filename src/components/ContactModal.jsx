@@ -1,6 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+const ESTADOS_MEXICO = [
+  "Aguascalientes", "Baja California", "Baja California Sur", "Campeche",
+  "Chiapas", "Chihuahua", "Ciudad de México", "Coahuila", "Colima",
+  "Durango", "Estado de México", "Guanajuato", "Guerrero", "Hidalgo",
+  "Jalisco", "Michoacán", "Morelos", "Nayarit", "Nuevo León", "Oaxaca",
+  "Puebla", "Querétaro", "Quintana Roo", "San Luis Potosí", "Sinaloa",
+  "Sonora", "Tabasco", "Tamaulipas", "Tlaxcala", "Veracruz", "Yucatán", "Zacatecas"
+];
+
 export default function ContactModal({ isOpen, onClose, initialEmail = '' }) {
   const [step, setStep] = useState(1);
   const [loading, setLoading] = useState(false);
@@ -12,6 +21,7 @@ export default function ContactModal({ isOpen, onClose, initialEmail = '' }) {
     correo: '',
     celular: '',
     empresa: '',
+    estado: '',
     empleados: '11-50',
     puesto: '',
     ofrecenVales: 'No'
@@ -86,6 +96,7 @@ export default function ContactModal({ isOpen, onClose, initialEmail = '' }) {
         body: JSON.stringify({
           LeadId: salesforceLeadId,
           Company: formData.empresa,
+          State: formData.estado,
           NumberOfEmployees: formData.empleados,
           Title: formData.puesto,
           PlataformaGastos__c: formData.tienePlataformaGastos
@@ -95,8 +106,11 @@ export default function ContactModal({ isOpen, onClose, initialEmail = '' }) {
       console.warn('Salesforce step 2 update bypassed for local testing:', err);
     } finally {
       setLoading(false);
-      setStep(3);
+      // Redirección segura a la ruta /gracias
+      window.location.href = '/gracias';
     }
+
+    
   };
 
   // Generación de URL de Calendly con parámetros pre-llenados
@@ -159,6 +173,7 @@ export default function ContactModal({ isOpen, onClose, initialEmail = '' }) {
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
                     <div>
                       <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
                         Nombre *
@@ -259,6 +274,27 @@ export default function ContactModal({ isOpen, onClose, initialEmail = '' }) {
                     />
                   </div>
 
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                      Estado de la República *
+                    </label>
+                    <select
+                      name="estado"
+                      required
+                      value={formData.estado}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none text-slate-800 bg-white"
+                    >
+                      <option value="" disabled>Selecciona un estado...</option>
+                      {ESTADOS_MEXICO.map((est) => (
+                        <option key={est} value={est}>
+                          {est}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
@@ -323,7 +359,7 @@ export default function ContactModal({ isOpen, onClose, initialEmail = '' }) {
                       type="submit"
                       className="w-full py-4 rounded-xl font-bold text-white bg-brand-darkblue hover:bg-brand-blue shadow-lg transition-all flex items-center justify-center gap-2"
                     >
-                      {loading ? 'Finalizando...' : 'Completar y Agendar →'}
+                      {loading ? 'Finalizando...' : 'Enviar solicitud →'}
                     </motion.button>
                   </div>
                 </form>

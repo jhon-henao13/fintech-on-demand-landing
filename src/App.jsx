@@ -11,9 +11,17 @@ import FAQ from './components/FAQ';
 import CTA from './components/CTA';
 import Footer from './components/Footer';
 import ContactModal from './components/ContactModal';
+import GraciasPage from './components/GraciasPage';
 
 export default function App() {
+  // Detección de ruta para /gracias
+  if (window.location.pathname === '/gracias') {
+    return <GraciasPage />;
+  }
+
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  
   const [modalInitialEmail, setModalInitialEmail] = useState('');
 
   const handleOpenModal = (email = '') => {
