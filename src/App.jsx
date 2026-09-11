@@ -43,7 +43,7 @@ export default function App() {
       <Navbar onOpenModal={() => handleOpenModal()} />
       <main className="flex-grow">
         <Hero onOpenModal={handleOpenModal} />
-        <Brands />
+        {/* <Brands /> */}
         <Features />
         <VideoDemo onOpenModal={() => handleOpenModal()} />
         <FinancialImpact />

@@ -4,9 +4,9 @@ import card1Gray from '../assets/card-1-gray.png';
 import card2Gray from '../assets/card-2-gray.png';
 import card3Gray from '../assets/card-3-gray.png';
 
-import sondaLogo from '../assets/success-stories/sonda-makeiteasy.png';
-import logistikLogo from '../assets/success-stories/logistik.jpeg';
-import gasoLogo from '../assets/success-stories/gaso-comunicaciones.jpeg';
+// import sondaLogo from '../assets/success-stories/sonda-makeiteasy.png';
+// import logistikLogo from '../assets/success-stories/logistik.jpeg';
+// import gasoLogo from '../assets/success-stories/gaso-comunicaciones.jpeg';
 
 export default function FinancialImpact() {
   const metrics = [
@@ -29,30 +29,29 @@ export default function FinancialImpact() {
 
   const caseStudies = [
     {
-      image: sondaLogo,
+      giro: "Empresa de Giro Tecnológico y Servicios IT",
+      bgImage: card1Gray,
       text: (
         <>
-          "Travex nos ha ayudado a hacer <span className="font-extrabold text-brand-darkblue">más eficiente la gestión</span> de nuestros viajes y nuestra operación."
+          "Nos ha ayudado a hacer <span className="font-extrabold text-brand-darkblue">más eficiente la gestión</span> de nuestros viajes corporativos y nuestra operación diaria."
         </>
       )
     },
-    
     {
-      image: logistikLogo,
-      
+      giro: "Empresa de Giro Logístico y Cadena de Suministro",
+      bgImage: card2Gray,
       text: (
         <>
-          "Más de 7 años creciendo junto a Travex respaldan la confianza de <span className="font-extrabold text-brand-darkblue">Logistik Operacional®</span>. Su gestión transparente y correcta es la clave para entregar soluciones <span className="font-extrabold text-brand-darkblue">en tiempo y forma</span>."
+          "Más de 7 años trabajando juntos respaldan nuestra confianza. Su gestión transparente es la clave para entregar soluciones <span className="font-extrabold text-brand-darkblue">en tiempo y forma</span>."
         </>
       )
     },
-    
     {
-      image: gasoLogo,
-      
+      giro: "Empresa de Giro Telecomunicaciones y Energía",
+      bgImage: card3Gray,
       text: (
         <>
-          "Travex nos brindó la <span className="font-extrabold text-brand-darkblue">trazabilidad necesaria</span> para nuestra operación, dándonos control total de cada gasto y la <span className="font-extrabold text-brand-darkblue">flexibilidad en dispersión</span> y comprobación que necesitábamos."
+          "Nos brindó la <span className="font-extrabold text-brand-darkblue">trazabilidad necesaria</span> para nuestra operación, dándonos control total de cada gasto y la <span className="font-extrabold text-brand-darkblue">flexibilidad en dispersión</span> y comprobación."
         </>
       )
     }
@@ -112,6 +111,7 @@ export default function FinancialImpact() {
           </motion.div>
         
           {/* Tarjetas de Casos de Éxito con Hover Interactivo */}
+          {/* Tarjetas de Casos de Éxito con Hover Interactivo */}
           <motion.div 
             initial="hidden"
             whileInView="show"
@@ -130,36 +130,27 @@ export default function FinancialImpact() {
                   show: { opacity: 1, y: 0, transition: { duration: 0.6 } }
                 }}
                 whileHover={{ y: -8, transition: { duration: 0.25 } }}
-                className="group relative h-[420px] rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-shadow duration-300 flex flex-col justify-between p-7 border border-slate-100"
+                className="group relative h-[380px] rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-shadow duration-300 flex flex-col justify-between p-7 border border-slate-100 bg-slate-50"
               >
-                {/* Imagen de Fondo con Zoom en Hover */}
-                <div className="absolute inset-0 z-0 overflow-hidden">
+                {/* Imagen de Fondo decorativa */}
+                <div className="absolute inset-0 z-0 overflow-hidden opacity-30">
                   <img
-                    src={card.image}
+                    src={card.bgImage}
                     alt={`Caso de éxito ${idx + 1}`}
                     className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-white/20 group-hover:bg-white/10 transition-colors duration-300" />
                 </div>
             
-                {/* Contenido Superior */}
+                {/* Etiqueta / Giro de la Empresa */}
                 <div className="relative z-10">
-                  {card.logo ? (
-                    <img 
-                      src={card.logo} 
-                      alt="Logo cliente" 
-                      className="h-10 sm:h-12 w-auto object-contain rounded-xl" 
-                    />
-                  ) : (
-                    <span className="text-2xl font-black text-brand-darkblue tracking-tight">
-                      {card.logoText}
-                    </span>
-                  )}
+                  <span className="inline-block px-4 py-2 rounded-full bg-brand-darkblue text-white text-xs sm:text-sm font-bold shadow-sm">
+                    {card.giro}
+                  </span>
                 </div>
             
-                {/* Contenido Inferior */}
-                <div className="relative z-10 bg-white/40 backdrop-blur-[2px] p-2 rounded-xl">
-                  <p className="text-base sm:text-lg text-brand-darkblue font-medium leading-snug">
+                {/* Cita / Testimonio */}
+                <div className="relative z-10 bg-white/80 backdrop-blur-sm p-5 rounded-2xl border border-slate-100/80 shadow-sm">
+                  <p className="text-base sm:text-lg text-slate-700 font-medium leading-relaxed italic">
                     {card.text}
                   </p>
                 </div>

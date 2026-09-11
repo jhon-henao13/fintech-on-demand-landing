@@ -34,7 +34,7 @@ export default function Hero({ onOpenModal }) {
             className="lg:col-span-6 px-6 sm:px-12 lg:pl-16 lg:pr-8 space-y-6"
           >
             <div>
-              <img src={travexLogo} alt="Travex Logo" className="h-4 w-auto object-contain mb-3" />
+              <img src={travexLogo} alt="Travex Logo" className="h-7 w-auto object-contain mb-3" />
             </div>
           
             <h1 className="text-4xl sm:text-5xl lg:text-[3.25rem] font-extrabold text-brand-darkblue !leading-[1.2] tracking-tight !mt-2">
